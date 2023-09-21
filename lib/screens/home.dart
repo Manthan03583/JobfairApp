@@ -90,8 +90,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Icons.check_circle,
                                 color: Color.fromARGB(199, 96, 79, 100),
                               ),
-                              onTap: () {
-                                _scanQR();
+                              onTap: () async{
+                                await _scanQR();
 
                                 // Navigator.of(context).pop();
                               },

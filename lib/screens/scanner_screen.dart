@@ -23,7 +23,7 @@ class ScannerScreen extends StatefulWidget {
 
 class _ScannerScreenState extends State<ScannerScreen> {
   String? name;
-  String? mobile;
+  String? email;
   String? bloodGroup;
   String? gender;
   //List addOn_Events = [];
@@ -127,23 +127,23 @@ class _ScannerScreenState extends State<ScannerScreen> {
                                       height: 5,
                                     ),
                                     Text(
-                                      "Mobile : $mobile",
+                                      "Email : $email",
                                       style: const TextStyle(fontSize: 13),
                                     ),
                                     const SizedBox(
                                       height: 5,
                                     ),
-                                    Text(
-                                      "Blood Group : $bloodGroup",
-                                      style: const TextStyle(fontSize: 13),
-                                    ),
-                                    const SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Gender : $gender",
-                                      style: const TextStyle(fontSize: 13),
-                                    ),
+                                    // Text(
+                                    //   "Blood Group : $bloodGroup",
+                                    //   style: const TextStyle(fontSize: 13),
+                                    // ),
+                                    // const SizedBox(
+                                    //   height: 5,
+                                    // ),
+                                    // Text(
+                                    //   "Gender : $gender",
+                                    //   style: const TextStyle(fontSize: 13),
+                                    // ),
                                   ],
                                 ),
                               ],
@@ -198,12 +198,32 @@ class _ScannerScreenState extends State<ScannerScreen> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 8),
-                                        child: Text(
-                                          addOnEventData[index]
-                                              .activityName
-                                              .toString(),
-                                          style: const TextStyle(fontSize: 16),
+                                        padding:
+                                            const EdgeInsets.only(left: 8.0),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              addOnEventData[index]
+                                                  .companyName
+                                                  .toString(),
+                                              style:
+                                                  const TextStyle(fontSize: 16),
+                                            ),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                            Text(
+                                              addOnEventData[index]
+                                                  .jobVacancy
+                                                  .toString(),
+                                              style:
+                                                  const TextStyle(fontSize: 12),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                       Checkbox(
@@ -258,7 +278,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
                                                       getCheckboxItems(
                                                           value!,
                                                           addOnEventData[index]
-                                                              .addonEventId
+                                                              .companyId
                                                               .toString());
                                                       vid = user.userId
                                                           .toString();
@@ -340,7 +360,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
       setState(() {
         //Loader.hide();
         name = jsonResponse["student_data"][0]["name"].toString();
-        mobile = jsonResponse["student_data"][0]["mobile"].toString();
+        email = jsonResponse["student_data"][0]["email"].toString();
         bloodGroup = jsonResponse["student_data"][0]["bloodgroup"].toString();
         gender = jsonResponse["student_data"][0]["gender"].toString();
         // addOn_Events = jsonResponse["addon_events"];
